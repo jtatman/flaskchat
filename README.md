@@ -2,6 +2,8 @@
 
 This is flaskchat, which uses multiple LLM models to write stories, or have philosophical discussions, or anything else you want to set the prompts for. 
 
+I use this to figure out strategies for multiple model, chain of thought, tree of thought, or alternate reasoning models. 
+
 ## Table of Contents
 
 - [Features](#features)
@@ -62,6 +64,7 @@ python flaskapi_gpt.py # for main application
 
 ```bash
   python -m venv .venv
+  .venv/bin/activate
 ```
 
 3. Install requirements

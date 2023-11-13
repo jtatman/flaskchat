@@ -1,0 +1,8 @@
+flask
+openai
+requests
+google.api_core 
+cohere
+pymongo 
+redis
+

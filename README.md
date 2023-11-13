@@ -21,13 +21,14 @@ Two parts, flaskapi_gpt.py and main.py (or the variations that use different bac
 Uses [openai](https://openai.com) and [cohere](https://cohere.com) as these are some good models with reasonable api prices.
 
 ## Getting Started
-1. 
+
 ```python 
 python main.py # for list storage
 python main-mongoback.py # for mongodb or ferretdb backend
 python main-redisback.py # for redis backend
 ```
-In seperate window:
+
+In separate window:
 
 ```python
 python flaskapi_gpt.py # for main application 
@@ -44,25 +45,31 @@ python flaskapi_gpt.py # for main application
 ### Installation
 
 1. Clone the repository.
-   ```bash
+```bash
    git clone https://github.com/jtatman/flaskchat.git
-  ```
+```
+
 2. Create a virtual environment
 
   Use micromamba, why not?
-  ```bash
+
+```bash
   "${SHELL}" <(curl -L micro.mamba.pm/install.sh)
   micromamba create -n flaskchat python=3.9 
-  ```
+```
+
   or venv
-  ```bash
+
+```bash
   python -m venv .venv
-  ```
+```
 
 3. Install requirements
-  ```bash
+
+```bash
   pip install -r requirements.txt
-  ```
+```
+
 4. Assumes mongo and redis run in servers at localhost or docker. If not, adjust in respective files. 
 
 5. Docker or podman

@@ -1,0 +1,15 @@
+# vim: set ft=dockerfile:
+
+FROM python:3.9-slim
+
+COPY requirements.txt /app/requirements.txt
+
+COPY main-redisback.py /app/app.py 
+
+WORKDIR /app
+
+RUN pip install -r requirements.txt --no-cache-dir
+
+EXPOSE 4231
+
+CMD [ "python3", "app.py" ]

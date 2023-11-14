@@ -1,0 +1,35 @@
+version: '3.8'
+services:
+  flask:
+    build:
+      dockerfile: Dockerfile.mongo
+    container_name: flask-mongo
+    image: python:3.9-slim
+    restart: on-failure
+    environment:
+      APP_PORT: 4231
+      APP_HOST: "0.0.0.0"
+      FLASK_RUN_HOST: "0.0.0.0"
+      MONGODB_DATABASE: ferretdb
+      MONGODB_HOSTNAME: ferretdb
+    ports:
+      - "4231:4231"
+    links:
+      - ferretdb
+    depends_on:
+      - ferretdb
+
+  ferretdb:
+    image: ghcr.io/ferretdb/ferretdb
+    container_name: ferretdb
+    restart: on-failure
+    ports:
+      - "27017:27017"
+    environment:
+      - FERRETDB_HANDLER=sqlite
+    volumes:
+      - ./state:/state
+
+networks:
+  default:
+    name: ferretdb

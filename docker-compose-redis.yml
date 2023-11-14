@@ -1,0 +1,26 @@
+version: '3'
+services:
+  flask:
+    build:
+      dockerfile: Dockerfile.redis
+    container_name: flask-redis
+    image: python:3.9-slim
+    restart: unless-stopped
+    environment:
+      APP_ENV: "prod"
+      APP_DEBUG: "False"
+      APP_PORT: 4231
+      FLASK_RUN_HOST: "0.0.0.0"
+      APP_HOST: "0.0.0.0"
+    ports:
+      - "4231:4231"
+    links:
+      - redis 
+    depends_on:
+      - redis
+  redis:
+    image: redis-stack:latest
+    container_name: redis
+    ports:
+      - "6379:6379"
+

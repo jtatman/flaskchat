@@ -11,10 +11,7 @@ I use this to figure out strategies for multiple model, chain of thought, tree o
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
 - [Usage](#usage)
-- [Configuration](#configuration)
-- [Contributing](#contributing)
 - [License](#license)
-- [Acknowledgments](#acknowledgments)
 
 ## Features
 
@@ -44,7 +41,8 @@ python flaskapi_gpt.py # for main application
 - redis server as available
 - mongodb server as available
 
-### Installation
+### Installation and 
+### Usage
 
 1. Clone the repository.
 ```bash
@@ -77,4 +75,33 @@ python flaskapi_gpt.py # for main application
 
 5. Docker or podman
 
-  TODO
+- To run mongo version: 
+
+```bash
+  docker compose -f docker-compose-mongo.yml build # build 
+  docker compose -f docker-compose-mongo.yml up    # bring up in screen or a spare terminal
+  docker compose -f docker-compose-mongo.yml -d    # bring up in daemon mode
+```
+
+- To run redis version: 
+
+```bash
+  docker compose -f docker-compose-redis.yml build  # build
+  docker compose -f docker-compose-redis.yml up     # bring up in screen or a spare terminal
+  docker compose -f docker-compose-redis.yml -d     # bring up in daemon mode 
+```
+
+- Podman:
+```bash
+  pip3 install podman-compose
+  podman-compose up -f docker-compose-mongo.yml -d
+  # or
+  podman-compose up -f docker-compose-redis.yml -d
+```
+
+- Kubernetes:
+
+Use [Kompose](https://kompose.io/getting-started/) to convert the compose yamls and proceed as needed. Use [k0s](https://k0sproject.io/) or [k3s](https://k3s.io/) for prototyping. Export pods to whereever. Have fun. 
+
+### License
+MIT
